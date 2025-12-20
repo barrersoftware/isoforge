@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <TextView android:id="@+id/titleText" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="BarrerSoftware ISO Tool"
+        android:textSize="24sp" android:textStyle="bold" android:gravity="center"
+        android:paddingBottom="24dp"/>
+    <Button android:id="@+id/selectIsoButton" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Select ISO File"
+        android:layout_marginBottom="16dp"/>
+    <Button android:id="@+id/selectDriveButton" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Select USB Drive"
+        android:enabled="false" android:layout_marginBottom="16dp"/>
+    <Button android:id="@+id/writeButton" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Write ISO to USB"
+        android:enabled="false" android:layout_marginBottom="24dp"/>
+    <ProgressBar android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent" android:layout_height="wrap_content"
+        android:visibility="gone" android:layout_marginBottom="16dp"/>
+    <TextView android:id="@+id/statusText" android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:text="Select an ISO file to begin"
+        android:gravity="center"/>
+</LinearLayout>
