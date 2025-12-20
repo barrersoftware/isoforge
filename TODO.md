@@ -124,3 +124,24 @@ No need for Server-specific code - it's the same!
 Just dd-style copy to USB = works!
 
 **Should be EASIER than Windows!**
+
+### USB Selection UX (Daniel's Input)
+"Auto-detect and auto-select USB-C OTG device right away"
+
+**Smart defaults:**
+1. Auto-detect USB mass storage devices
+2. If only ONE device: Auto-select it
+3. If MULTIPLE devices: Show dropdown to choose
+4. Update selection when devices change
+
+**Benefits:**
+- Single USB? Zero clicks, just works
+- Multiple USB? Clear choice shown
+- Prevents wrong device selection
+- KISS principle - minimize user decisions
+
+**Implementation:**
+- UsbDetector monitors connections
+- Auto-select if devices.size == 1
+- Dropdown only if devices.size > 1
+- Show device name/size for clarity
