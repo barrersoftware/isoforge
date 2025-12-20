@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ISOForge</string>
+    
+    <!-- Help Dialog -->
+    <string name="help_title">How to Use ISOForge</string>
+    <string name="help_message">Simple Steps:\n\n1. Get an ISO file\n   - Download one from the list, OR\n   - Find one on your phone\n\n2. Connect USB drive\n   - Use a USB-C adapter\n   - Plug in your USB drive\n\n3. Tap \"Format and Write ISO\"\n   - Wait for it to finish\n   - Done! Your USB is bootable\n\nNeed to erase the USB?\nUse \"Format USB (Blank)\" to clean it.</string>
+    
+    <!-- About Dialog -->
+    <string name="about_title">About ISOForge</string>
+    <string name="about_message">ISOForge v1.0.0\nCreate bootable USB drives from Android\n\nBuilt by BarrerSoftware\nMaking technology accessible to everyone\n\nOpen Source Library:\nlibaums by magnusja (Apache 2.0)\n\nVisit: barrersoftware.com\nGitHub: github.com/barrersoftware/isoforge</string>
+    
+    <!-- Menu Items -->
+    <string name="menu_help">Help</string>
+    <string name="menu_about">About</string>
+</resources>
