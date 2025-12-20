@@ -51,4 +51,7 @@ dependencies {
     
     // DocumentFile for USB access
     implementation("androidx.documentfile:documentfile:1.0.1")
+    
+    // libaums for USB mass storage
+    implementation("com.github.magnusja:libaums:0.8.0")
 }
