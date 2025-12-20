@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ISOForge</string>
+    <string name="help_title">Como usar o ISOForge</string>
+    <string name="help_message">Passos simples:\n\n1. Obter um arquivo ISO\n   - Baixe um da lista, OU\n   - Encontre um no seu telefone\n\n2. Conectar pen drive USB\n   - Use um adaptador USB-C\n   - Conecte seu pen drive\n\n3. Toque em \"Formatar e Gravar ISO\"\n   - Aguarde terminar\n   - Pronto! Seu USB está inicializável\n\nPrecisa apagar o USB?\nUse \"Formatar USB (Vazio)\" para limpá-lo.</string>
+    <string name="about_title">Sobre o ISOForge</string>
+    <string name="about_message">ISOForge v1.0.0\nCrie pen drives USB inicializáveis do Android\n\nDesenvolvido pela BarrerSoftware\nTornando a tecnologia acessível para todos\n\nBiblioteca de código aberto:\nlibaums por magnusja (Apache 2.0)\n\nVisite: barrersoftware.com\nGitHub: github.com/barrersoftware/isoforge</string>
+    <string name="menu_help">Ajuda</string>
+    <string name="menu_about">Sobre</string>
+</resources>

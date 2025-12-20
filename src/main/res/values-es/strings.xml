@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ISOForge</string>
+    <string name="help_title">Cómo usar ISOForge</string>
+    <string name="help_message">Pasos simples:\n\n1. Obtener un archivo ISO\n   - Descarga uno de la lista, O\n   - Encuentra uno en tu teléfono\n\n2. Conectar unidad USB\n   - Usa un adaptador USB-C\n   - Conecta tu unidad USB\n\n3. Toca \"Formatear y Escribir ISO\"\n   - Espera a que termine\n   - ¡Listo! Tu USB es arrancable\n\n¿Necesitas borrar el USB?\nUsa \"Formatear USB (Vacío)\" para limpiarlo.</string>
+    <string name="about_title">Acerca de ISOForge</string>
+    <string name="about_message">ISOForge v1.0.0\nCrea unidades USB arrancables desde Android\n\nDesarrollado por BarrerSoftware\nHaciendo la tecnología accesible para todos\n\nBiblioteca de código abierto:\nlibaums por magnusja (Apache 2.0)\n\nVisita: barrersoftware.com\nGitHub: github.com/barrersoftware/isoforge</string>
+    <string name="menu_help">Ayuda</string>
+    <string name="menu_about">Acerca de</string>
+</resources>

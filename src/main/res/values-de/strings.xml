@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ISOForge</string>
+    <string name="help_title">So verwenden Sie ISOForge</string>
+    <string name="help_message">Einfache Schritte:\n\n1. ISO-Datei besorgen\n   - Eine aus der Liste herunterladen, ODER\n   - Eine auf Ihrem Telefon finden\n\n2. USB-Laufwerk verbinden\n   - USB-C-Adapter verwenden\n   - USB-Laufwerk anschließen\n\n3. \"Formatieren und ISO schreiben\" antippen\n   - Warten Sie bis fertig\n   - Fertig! Ihr USB ist bootfähig\n\nUSB löschen?\n\"USB formatieren (Leer)\" zum Bereinigen verwenden.</string>
+    <string name="about_title">Über ISOForge</string>
+    <string name="about_message">ISOForge v1.0.0\nBootfähige USB-Laufwerke von Android erstellen\n\nEntwickelt von BarrerSoftware\nTechnologie für alle zugänglich machen\n\nOpen-Source-Bibliothek:\nlibaums von magnusja (Apache 2.0)\n\nBesuchen: barrersoftware.com\nGitHub: github.com/barrersoftware/isoforge</string>
+    <string name="menu_help">Hilfe</string>
+    <string name="menu_about">Über</string>
+</resources>

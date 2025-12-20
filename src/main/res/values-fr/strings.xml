@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">ISOForge</string>
+    <string name="help_title">Comment utiliser ISOForge</string>
+    <string name="help_message">Étapes simples:\n\n1. Obtenir un fichier ISO\n   - Téléchargez-en un de la liste, OU\n   - Trouvez-en un sur votre téléphone\n\n2. Connecter la clé USB\n   - Utilisez un adaptateur USB-C\n   - Branchez votre clé USB\n\n3. Appuyez sur \"Formater et Écrire ISO\"\n   - Attendez la fin\n   - Terminé! Votre USB est amorçable\n\nBesoin d\'effacer l\'USB?\nUtilisez \"Formater USB (Vide)\" pour le nettoyer.</string>
+    <string name="about_title">À propos d\'ISOForge</string>
+    <string name="about_message">ISOForge v1.0.0\nCréer des clés USB amorçables depuis Android\n\nDéveloppé par BarrerSoftware\nRendre la technologie accessible à tous\n\nBibliothèque open source:\nlibaums par magnusja (Apache 2.0)\n\nVisite: barrersoftware.com\nGitHub: github.com/barrersoftware/isoforge</string>
+    <string name="menu_help">Aide</string>
+    <string name="menu_about">À propos</string>
+</resources>
