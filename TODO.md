@@ -97,3 +97,30 @@ D. Detect and warn user
 **One Windows implementation = ALL Windows versions!**
 
 No need for Server-specific code - it's the same!
+
+### Linux ISO Variations (Daniel's Note)
+"Some Linux distros like to do things different but it shouldn't affect it"
+
+**Linux boot diversity:**
+- GRUB (most common)
+- SYSLINUX (older)
+- systemd-boot (newer)
+- Custom bootloaders
+
+**But core approach stays same:**
+1. Write ISO content to USB
+2. Mark partition bootable
+3. Boot sector should be in ISO
+
+**Key difference from Windows:**
+- Windows: Specific bootmgr structure required
+- Linux: Boot code IN the ISO, just copy it
+
+**Strategy:**
+- Windows approach: Active manipulation (set boot sector)
+- Linux approach: Passive copy (ISO has boot code, just write it)
+
+**Most Linux ISOs are "hybrid ISOs"** - already contain boot sector.
+Just dd-style copy to USB = works!
+
+**Should be EASIER than Windows!**
