@@ -41,9 +41,6 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
     
-    // USB Mass Storage - Fixed JitPack dependency
-    implementation("com.github.magnusja:libaums:0.7.6")
-    
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.3")
@@ -51,4 +48,7 @@ dependencies {
     // Lifecycle
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
+    
+    // DocumentFile for USB access
+    implementation("androidx.documentfile:documentfile:1.0.1")
 }
