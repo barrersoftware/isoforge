@@ -289,3 +289,35 @@ Daniel reminder: Include Windows ISOs in manifest
 - IT professional? Recovery toolset
 
 Complete cross-platform emergency recovery solution! 🏴‍☠️
+
+### 🐿️ Vision: Data Center Use Case
+Daniel's squirrel moment (brilliant!):
+"Data centers could use ISOForge - they need Windows AND Linux"
+
+**Enterprise/Data Center Scenario:**
+- Server down in rack
+- Tablet/phone is handheld device available
+- Quick download + flash recovery ISO
+- Back up and running fast
+
+**Why this matters:**
+- Data centers have mixed environments (Windows + Linux)
+- Need quick recovery options
+- Mobile devices common for on-site work
+- USB-C tablets perfect for server room work
+
+**ISOForge becomes enterprise IT tool:**
+- Sysadmin toolkit on Android tablet
+- Download any ISO needed on-site
+- Flash to USB stick
+- Deploy to servers
+- No laptop needed!
+
+**Market expansion:**
+- Home users (emergency recovery)
+- IT professionals (fieldwork)
+- Data centers (server recovery)
+- Educational institutions
+- Small businesses
+
+This is bigger than I initially thought! 🏴‍☠️🐿️
