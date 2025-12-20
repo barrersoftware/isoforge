@@ -52,6 +52,6 @@ dependencies {
     // DocumentFile for USB access
     implementation("androidx.documentfile:documentfile:1.0.1")
     
-    // libaums for USB mass storage - using JitPack
-    implementation("com.github.magnusja:libaums:0.7.6")
+    // libaums for USB mass storage - using JitPack with correct artifact name
+    implementation("com.github.magnusja:libaums:libaums-0.7.6")
 }
