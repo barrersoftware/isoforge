@@ -46,3 +46,35 @@ Most complex part (USB access) solved by libaums.
 Rest is straightforward file/block operations.
 
 Should be completable quickly!
+
+## CRITICAL: Windows ISO Support Priority
+Daniel's point: "85% of all desktop computers are Windows"
+
+### Windows-Specific Requirements
+1. **FAT32 formatting** - Windows bootable requires FAT32
+2. **MBR boot sector** - Must set proper boot flag
+3. **Large file handling** - install.wim can be >4GB (FAT32 limit!)
+4. **Bootloader files** - Windows expects specific boot structure
+
+### The >4GB Problem
+Windows ISOs often have install.wim >4GB, but FAT32 has 4GB file limit
+
+**Solutions:**
+A. Split install.wim (complex)
+B. Use exFAT (not always bootable on older systems)
+C. NTFS (requires special handling)
+D. Detect and warn user
+
+**Priority approach:**
+- Test with Windows 10/11 ISOs first
+- Ensure bootloader compatibility
+- Handle large files gracefully
+- Clear error messages if limitations hit
+
+### Testing Priority
+1. Windows 10/11 ISO (most common)
+2. Windows Server evaluation
+3. Linux distros (Ubuntu, Debian)
+4. SecureOS
+
+**Windows MUST work perfectly - it's 85% of use cases!**
