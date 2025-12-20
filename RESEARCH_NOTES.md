@@ -264,3 +264,28 @@ Implementation:
 - Auto-select for flashing
 
 GENIUS integration across BarrerSoftware ecosystem! 🏴‍☠️
+
+### Windows ISOs Too!
+Daniel reminder: Include Windows ISOs in manifest
+
+**CleanVM Manifest Should Include:**
+- Linux distros (Ubuntu, Debian, Fedora, etc.)
+- SecureOS (our custom Android-based OS)
+- Windows Server evaluation ISOs
+- Windows 10/11 installation media
+- Recovery tools (GParted, Clonezilla, etc.)
+- Specialized tools
+
+**Legal/Licensing:**
+- Microsoft provides evaluation ISOs publicly
+- Linux distros are freely distributable
+- Recovery tools are open source
+- Just need proper attribution/licenses
+
+**Makes ISOForge universal emergency tool:**
+- Windows user? Download Windows ISO
+- Linux user? Download your preferred distro
+- Android enthusiast? Get SecureOS
+- IT professional? Recovery toolset
+
+Complete cross-platform emergency recovery solution! 🏴‍☠️
