@@ -1,27 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp">
-    <TextView android:id="@+id/titleText" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="BarrerSoftware ISO Tool"
-        android:textSize="24sp" android:textStyle="bold" android:gravity="center"
-        android:paddingBottom="24dp"/>
-    <Button android:id="@+id/selectIsoButton" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Select ISO File"
-        android:layout_marginBottom="16dp"/>
-    <Button android:id="@+id/selectDriveButton" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Select USB Drive"
-        android:enabled="false" android:layout_marginBottom="16dp"/>
-    <Button android:id="@+id/writeButton" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Write ISO to USB"
-        android:enabled="false" android:layout_marginBottom="24dp"/>
-    <ProgressBar android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent" android:layout_height="wrap_content"
-        android:visibility="gone" android:layout_marginBottom="16dp"/>
-    <TextView android:id="@+id/statusText" android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:text="Select an ISO file to begin"
-        android:gravity="center"/>
-</LinearLayout>
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ISOForge"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/downloadIsoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Download ISO"
+        android:layout_marginTop="32dp"
+        app:icon="@android:drawable/stat_sys_download"
+        app:layout_constraintTop_toBottomOf="@id/titleText"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/selectIsoButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Search for ISO"
+        android:layout_marginTop="16dp"
+        app:icon="@android:drawable/ic_menu_search"
+        app:layout_constraintTop_toBottomOf="@id/downloadIsoButton"/>
+
+    <TextView
+        android:id="@+id/selectedIsoText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No ISO selected"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/selectIsoButton"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/selectUsbButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select USB Drive"
+        android:layout_marginTop="24dp"
+        android:enabled="false"
+        app:icon="@android:drawable/stat_sys_data_bluetooth"
+        app:layout_constraintTop_toBottomOf="@id/selectedIsoText"/>
+
+    <TextView
+        android:id="@+id/selectedUsbText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No USB drive detected"
+        android:textSize="14sp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/selectUsbButton"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/formatAndWriteButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Format and Write ISO"
+        android:layout_marginTop="24dp"
+        android:enabled="false"
+        app:icon="@android:drawable/stat_sys_upload"
+        style="@style/Widget.Material3.Button.TonalButton"
+        app:layout_constraintTop_toBottomOf="@id/selectedUsbText"/>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/formatBlankButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Format USB (Blank)"
+        android:layout_marginTop="16dp"
+        android:enabled="false"
+        app:icon="@android:drawable/ic_menu_delete"
+        style="@style/Widget.Material3.Button.OutlinedButton"
+        app:layout_constraintTop_toBottomOf="@id/formatAndWriteButton"/>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_marginTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/formatBlankButton"/>
+
+    <TextView
+        android:id="@+id/statusText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Select or download an ISO to begin"
+        android:gravity="center"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@id/progressBar"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
