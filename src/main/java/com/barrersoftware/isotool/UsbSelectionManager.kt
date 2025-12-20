@@ -29,7 +29,7 @@ class UsbSelectionManager(private val context: Context) {
     private fun showNoDeviceDialog() {
         AlertDialog.Builder(context)
             .setTitle("No USB Drive Detected")
-            .setMessage("Please connect a USB drive via OTG adapter")
+            .setMessage("Please connect a USB drive to your phone")
             .setPositiveButton("OK", null)
             .show()
     }
