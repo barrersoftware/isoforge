@@ -41,7 +41,7 @@ class UsbSelectionManager(private val context: Context) {
         val deviceNames = devices.map { device ->
             val partition = device.partitions.firstOrNull()
             val sizeGB = partition?.let { 
-                it.capacity / (1024 * 1024 * 1024) 
+                it.fileSystem.capacity / (1024 * 1024 * 1024) 
             } ?: 0
             "${device.usbDevice.productName} (${sizeGB}GB)"
         }.toTypedArray()
@@ -57,7 +57,7 @@ class UsbSelectionManager(private val context: Context) {
     
     fun getDeviceInfo(device: UsbMassStorageDevice): String {
         val partition = device.partitions.firstOrNull()
-        val sizeGB = partition?.let { it.capacity / (1024 * 1024 * 1024) } ?: 0
+        val sizeGB = partition?.let { it.fileSystem.capacity / (1024 * 1024 * 1024) } ?: 0
         return "${device.usbDevice.productName} (${sizeGB}GB)"
     }
 }

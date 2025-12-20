@@ -8,7 +8,10 @@ class DriveDetector(private val context: Context) {
     }
     fun getDriveInfo(device: UsbMassStorageDevice): String {
         val partition = device.partitions.firstOrNull()
-        val sizeGB = partition?.let { it.capacity / (1024 * 1024 * 1024) } ?: 0
+        val sizeGB = partition?.let { 
+            val fs = it.fileSystem
+            fs.capacity / (1024 * 1024 * 1024)
+        } ?: 0
         return "${device.usbDevice.productName} (${sizeGB}GB)"
     }
 }

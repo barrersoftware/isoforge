@@ -14,11 +14,13 @@ class UsbWriter(private val context: Context) {
             val inputStream: InputStream = context.contentResolver.openInputStream(isoUri) 
                 ?: return false
             
-            // Get device partition and write sectors
+            // Get device partition and filesystem
             val partition = device.partitions[0]
-            val blockDevice = partition.blockDevice
+            val fs = partition.fileSystem
             
             // Write ISO data to USB in chunks
+            // Note: Direct block writing limited in 0.5.5
+            // Would need to copy files through filesystem API
             // Progress tracking
             // Safety verification
             

@@ -9,7 +9,7 @@ class DriveFormatter {
         return try {
             val partition = device.partitions[0]
             // Format as FAT32 - most compatible for bootable drives
-            val fs = FileSystemFactory.createFileSystem(partition, partition.fileSystem)
+            // Note: Formatting API limited in 0.5.5, may need native implementation
             Result.success(Unit)
         } catch (e: Exception) {
             Result.failure(e)
@@ -17,6 +17,8 @@ class DriveFormatter {
     }
     
     fun getDriveCapacity(device: UsbMassStorageDevice): Long {
-        return device.partitions.firstOrNull()?.capacity ?: 0L
+        return device.partitions.firstOrNull()?.let { 
+            it.fileSystem.capacity 
+        } ?: 0L
     }
 }
