@@ -1,0 +1,18 @@
+# Internal development docs - not for public repo
+RESEARCH_NOTES.md
+NAMING.md
+IMPLEMENTATION_STATUS.md
+PROJECT_VISION.md
+SQUIRREL_DRIVEN_INNOVATION.md
+README.old
+
+# Android build files
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
