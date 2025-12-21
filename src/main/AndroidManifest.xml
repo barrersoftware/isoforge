@@ -3,7 +3,10 @@
     package="com.barrersoftware.isotool">
     
     <uses-feature android:name="android.hardware.usb.host" />
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.USB_PERMISSION" />
     
     <application
@@ -12,7 +15,7 @@
         android:label="ISOForge"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.DarkActionBar">
+        android:theme="@style/Theme.Material3.DayNight">
         
         <activity
             android:name=".MainActivity"

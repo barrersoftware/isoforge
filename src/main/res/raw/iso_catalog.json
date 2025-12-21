@@ -1,0 +1,205 @@
+{
+  "version": "1.0",
+  "lastUpdated": "2025-12-19T02:05:00Z",
+  "categories": [
+    {
+      "id": "windows",
+      "name": "Windows",
+      "icon": "🪟",
+      "templates": [
+        {
+          "id": "windows-11",
+          "name": "Windows 11",
+          "description": "Latest Windows desktop operating system",
+          "version": "24H2",
+          "architecture": "x86_64",
+          "downloadUrl": "https://www.microsoft.com/software-download/windows11",
+          "sizeBytes": 5500000000,
+          "checksum": {
+            "algorithm": "SHA256",
+            "value": ""
+          },
+          "recommendedSpecs": {
+            "cpuCores": 2,
+            "memoryMB": 4096,
+            "diskGB": 64
+          },
+          "notes": "Requires TPM 2.0. Download from Microsoft directly."
+        },
+        {
+          "id": "windows-10",
+          "name": "Windows 10",
+          "description": "Previous Windows desktop operating system",
+          "version": "22H2",
+          "architecture": "x86_64",
+          "downloadUrl": "https://www.microsoft.com/software-download/windows10",
+          "sizeBytes": 5300000000,
+          "checksum": {
+            "algorithm": "SHA256",
+            "value": ""
+          },
+          "recommendedSpecs": {
+            "cpuCores": 2,
+            "memoryMB": 4096,
+            "diskGB": 40
+          },
+          "notes": "Support ends October 2025"
+        },
+        {
+          "id": "windows-server-2025",
+          "name": "Windows Server 2025",
+          "description": "Latest Windows Server (Evaluation)",
+          "version": "2025",
+          "architecture": "x86_64",
+          "downloadUrl": "https://www.microsoft.com/en-us/evalcenter/evaluate-windows-server-2025",
+          "sizeBytes": 5200000000,
+          "checksum": {
+            "algorithm": "SHA256",
+            "value": ""
+          },
+          "recommendedSpecs": {
+            "cpuCores": 4,
+            "memoryMB": 8192,
+            "diskGB": 60
+          },
+          "notes": "180-day evaluation version"
+        }
+      ]
+    },
+    {
+      "id": "ubuntu",
+      "name": "Ubuntu",
+      "icon": "🐧",
+      "templates": [
+        {
+          "id": "ubuntu-24.04-desktop",
+          "name": "Ubuntu 24.04 LTS Desktop",
+          "description": "Latest Ubuntu LTS desktop",
+          "version": "24.04",
+          "architecture": "x86_64",
+          "downloadUrl": "https://releases.ubuntu.com/24.04/ubuntu-24.04.1-desktop-amd64.iso",
+          "sizeBytes": 6300000000,
+          "checksum": {
+            "algorithm": "SHA256",
+            "value": "c2e6f4dc37ac944e2ed507f87c6188dd4d3179bf4a3f9e110d3c88d1f3294bdc"
+          },
+          "recommendedSpecs": {
+            "cpuCores": 2,
+            "memoryMB": 4096,
+            "diskGB": 25
+          },
+          "notes": "Support until 2029"
+        },
+        {
+          "id": "ubuntu-24.04-server",
+          "name": "Ubuntu 24.04 LTS Server",
+          "description": "Latest Ubuntu LTS server",
+          "version": "24.04",
+          "architecture": "x86_64",
+          "downloadUrl": "https://releases.ubuntu.com/24.04/ubuntu-24.04.1-live-server-amd64.iso",
+          "sizeBytes": 2600000000,
+          "checksum": {
+            "algorithm": "SHA256",
+            "value": "e240e4b801f7bb68c20d1356b60968ad0c33a41d00d828e74ceb3364a0317be9"
+          },
+          "recommendedSpecs": {
+            "cpuCores": 1,
+            "memoryMB": 2048,
+            "diskGB": 10
+          },
+          "notes": "Minimal server install"
+        },
+        {
+          "id": "ubuntu-22.04-desktop",
+          "name": "Ubuntu 22.04 LTS Desktop",
+          "description": "Previous Ubuntu LTS desktop",
+          "version": "22.04",
+          "architecture": "x86_64",
+          "downloadUrl": "https://releases.ubuntu.com/22.04/ubuntu-22.04.5-desktop-amd64.iso",
+          "sizeBytes": 4700000000,
+          "checksum": {
+            "algorithm": "SHA256",
+            "value": "a435f6f393dda581172490eda9f683c32e495158a780b5a1de422ee77d98e909"
+          },
+          "recommendedSpecs": {
+            "cpuCores": 2,
+            "memoryMB": 4096,
+            "diskGB": 25
+          },
+          "notes": "Support until 2027"
+        }
+      ]
+    },
+    {
+      "id": "fedora",
+      "name": "Fedora",
+      "icon": "🎩",
+      "templates": [
+        {
+          "id": "fedora-41-workstation",
+          "name": "Fedora 41 Workstation",
+          "description": "Latest Fedora desktop with GNOME",
+          "version": "41",
+          "architecture": "x86_64",
+          "downloadUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-41-1.4.iso",
+          "sizeBytes": 2100000000,
+          "checksum": {
+            "algorithm": "SHA256",
+            "value": ""
+          },
+          "recommendedSpecs": {
+            "cpuCores": 2,
+            "memoryMB": 4096,
+            "diskGB": 20
+          },
+          "notes": "Bleeding edge, 6-month support cycle"
+        },
+        {
+          "id": "fedora-41-server",
+          "name": "Fedora 41 Server",
+          "description": "Latest Fedora server edition",
+          "version": "41",
+          "architecture": "x86_64",
+          "downloadUrl": "https://download.fedoraproject.org/pub/fedora/linux/releases/41/Server/x86_64/iso/Fedora-Server-dvd-x86_64-41-1.4.iso",
+          "sizeBytes": 2400000000,
+          "checksum": {
+            "algorithm": "SHA256",
+            "value": ""
+          },
+          "recommendedSpecs": {
+            "cpuCores": 1,
+            "memoryMB": 2048,
+            "diskGB": 15
+          },
+          "notes": "Enterprise-ready server OS"
+        }
+      ]
+    },
+    {
+      "id": "debian",
+      "name": "Debian",
+      "icon": "🌀",
+      "templates": [
+        {
+          "id": "debian-12-netinst",
+          "name": "Debian 12 (Bookworm) Net Install",
+          "description": "Stable Debian net installer",
+          "version": "12.8",
+          "architecture": "x86_64",
+          "downloadUrl": "https://cdimage.debian.org/debian-cd/current/amd64/iso-cd/debian-12.8.0-amd64-netinst.iso",
+          "sizeBytes": 660000000,
+          "checksum": {
+            "algorithm": "SHA256",
+            "value": ""
+          },
+          "recommendedSpecs": {
+            "cpuCores": 1,
+            "memoryMB": 1024,
+            "diskGB": 10
+          },
+          "notes": "Minimal installer, downloads packages during install"
+        }
+      ]
+    }
+  ]
+}
