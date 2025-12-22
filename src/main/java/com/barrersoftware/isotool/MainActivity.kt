@@ -245,6 +245,10 @@ class MainActivity : AppCompatActivity() {
         val fileName = "${template.id}.iso"
         val destination = java.io.File(downloadDir, fileName)
         
+        // Log and show download path
+        android.util.Log.d("ISOForge", "Download path: ${destination.absolutePath}")
+        android.widget.Toast.makeText(this, "Downloading to: ${destination.absolutePath}", android.widget.Toast.LENGTH_LONG).show()
+        
         progressBar.visibility = android.view.View.VISIBLE
         progressBar.isIndeterminate = false
         
@@ -265,7 +269,8 @@ class MainActivity : AppCompatActivity() {
                     selectedIso = android.net.Uri.fromFile(file)
                     selectedIsoText.text = "ISO: ${template.name}"
                     selectUsbButton.isEnabled = true
-                    statusText.text = "✓ Download complete! Connect USB drive"
+                    statusText.text = "✓ Download complete! Saved to: ${file.absolutePath}"
+                    android.widget.Toast.makeText(this@MainActivity, "ISO saved to:\n${file.absolutePath}", android.widget.Toast.LENGTH_LONG).show()
                 }
             }.onFailure { error ->
                 runOnUiThread {
