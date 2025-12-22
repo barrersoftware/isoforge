@@ -2,8 +2,10 @@ package com.barrersoftware.isotool
 
 import android.Manifest
 import android.app.Activity
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Build
@@ -37,6 +39,33 @@ class MainActivity : AppCompatActivity() {
     private var selectedUsbDevice: com.github.mjdev.libaums.UsbMassStorageDevice? = null
     private var isVentoyDrive: Boolean = false
     
+    private val downloadReceiver = object : BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            when (intent?.action) {
+                IsoDownloadService.ACTION_DOWNLOAD_COMPLETE -> {
+                    val filePath = intent.getStringExtra(IsoDownloadService.EXTRA_FILE_PATH)
+                    val isoName = intent.getStringExtra(IsoDownloadService.EXTRA_ISO_NAME)
+                    filePath?.let { path ->
+                        runOnUiThread {
+                            progressBar.visibility = android.view.View.GONE
+                            selectedIso = Uri.fromFile(java.io.File(path))
+                            selectedIsoText.text = "ISO: $isoName"
+                            selectUsbButton.isEnabled = true
+                            statusText.text = "✓ Download complete! Saved to: $path"
+                        }
+                    }
+                }
+                IsoDownloadService.ACTION_DOWNLOAD_FAILED -> {
+                    val error = intent.getStringExtra(IsoDownloadService.EXTRA_ERROR)
+                    runOnUiThread {
+                        progressBar.visibility = android.view.View.GONE
+                        statusText.text = "Download failed: $error"
+                    }
+                }
+            }
+        }
+    }
+    
     companion object {
         const val REQUEST_ISO = 1
         const val REQUEST_STORAGE_PERMISSION = 100
@@ -51,6 +80,25 @@ class MainActivity : AppCompatActivity() {
         setupClickListeners()
         setupUsbDetection()
         loadDarkModePreference()
+        registerDownloadReceiver()
+    }
+    
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterReceiver(downloadReceiver)
+        usbDetector.stopMonitoring()
+    }
+    
+    private fun registerDownloadReceiver() {
+        val filter = IntentFilter().apply {
+            addAction(IsoDownloadService.ACTION_DOWNLOAD_COMPLETE)
+            addAction(IsoDownloadService.ACTION_DOWNLOAD_FAILED)
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(downloadReceiver, filter, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            registerReceiver(downloadReceiver, filter)
+        }
     }
     
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -217,11 +265,6 @@ class MainActivity : AppCompatActivity() {
         )
     }
     
-    override fun onDestroy() {
-        super.onDestroy()
-        usbDetector.stopMonitoring()
-    }
-    
     private fun showIsoDownloadDialog() {
         statusText.text = "Loading ISO catalog..."
         lifecycleScope.launch {
@@ -241,43 +284,27 @@ class MainActivity : AppCompatActivity() {
     }
     
     private fun downloadIso(template: IsoTemplate) {
-        val downloadDir = getExternalFilesDir(null)
         val fileName = "${template.id}.iso"
-        val destination = java.io.File(downloadDir, fileName)
         
-        // Log and show download path
-        android.util.Log.d("ISOForge", "Download path: ${destination.absolutePath}")
-        android.widget.Toast.makeText(this, "Downloading to: ${destination.absolutePath}", android.widget.Toast.LENGTH_LONG).show()
+        // Log and show download starting
+        android.util.Log.d("ISOForge", "Starting background download for: ${template.name}")
+        android.widget.Toast.makeText(this, "Starting download in background: ${template.name}", android.widget.Toast.LENGTH_LONG).show()
         
         progressBar.visibility = android.view.View.VISIBLE
-        progressBar.isIndeterminate = false
+        progressBar.isIndeterminate = true
+        statusText.text = "Download started in background..."
         
-        lifecycleScope.launch {
-            val downloader = IsoDownloader()
-            downloader.downloadIso(template.downloadUrl, destination) { downloaded, total ->
-                runOnUiThread {
-                    if (total > 0) {
-                        progressBar.progress = ((downloaded * 100) / total).toInt()
-                        val downloadedMB = downloaded / 1024 / 1024
-                        val totalMB = total / 1024 / 1024
-                        statusText.text = "Downloading: ${downloadedMB}MB / ${totalMB}MB"
-                    }
-                }
-            }.onSuccess { file ->
-                runOnUiThread {
-                    progressBar.visibility = android.view.View.GONE
-                    selectedIso = android.net.Uri.fromFile(file)
-                    selectedIsoText.text = "ISO: ${template.name}"
-                    selectUsbButton.isEnabled = true
-                    statusText.text = "✓ Download complete! Saved to: ${file.absolutePath}"
-                    android.widget.Toast.makeText(this@MainActivity, "ISO saved to:\n${file.absolutePath}", android.widget.Toast.LENGTH_LONG).show()
-                }
-            }.onFailure { error ->
-                runOnUiThread {
-                    progressBar.visibility = android.view.View.GONE
-                    statusText.text = "Download failed: ${error.message}"
-                }
-            }
+        // Start the download service
+        val intent = Intent(this, IsoDownloadService::class.java).apply {
+            putExtra(IsoDownloadService.EXTRA_URL, template.downloadUrl)
+            putExtra(IsoDownloadService.EXTRA_FILENAME, fileName)
+            putExtra(IsoDownloadService.EXTRA_ISO_NAME, template.name)
+        }
+        
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent)
+        } else {
+            startService(intent)
         }
     }
     
