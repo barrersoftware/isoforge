@@ -42,6 +42,21 @@ class MainActivity : AppCompatActivity() {
     private val downloadReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context?, intent: Intent?) {
             when (intent?.action) {
+                IsoDownloadService.ACTION_DOWNLOAD_PROGRESS -> {
+                    val isoName = intent.getStringExtra(IsoDownloadService.EXTRA_ISO_NAME)
+                    val downloaded = intent.getLongExtra(IsoDownloadService.EXTRA_DOWNLOADED, 0)
+                    val total = intent.getLongExtra(IsoDownloadService.EXTRA_TOTAL, 0)
+                    runOnUiThread {
+                        if (total > 0) {
+                            val progress = ((downloaded * 100) / total).toInt()
+                            val downloadedMB = downloaded / 1024 / 1024
+                            val totalMB = total / 1024 / 1024
+                            progressBar.visibility = android.view.View.VISIBLE
+                            progressBar.progress = progress
+                            statusText.text = "Downloading $isoName: ${downloadedMB}MB / ${totalMB}MB ($progress%)"
+                        }
+                    }
+                }
                 IsoDownloadService.ACTION_DOWNLOAD_COMPLETE -> {
                     val filePath = intent.getStringExtra(IsoDownloadService.EXTRA_FILE_PATH)
                     val isoName = intent.getStringExtra(IsoDownloadService.EXTRA_ISO_NAME)
@@ -91,6 +106,7 @@ class MainActivity : AppCompatActivity() {
     
     private fun registerDownloadReceiver() {
         val filter = IntentFilter().apply {
+            addAction(IsoDownloadService.ACTION_DOWNLOAD_PROGRESS)
             addAction(IsoDownloadService.ACTION_DOWNLOAD_COMPLETE)
             addAction(IsoDownloadService.ACTION_DOWNLOAD_FAILED)
         }

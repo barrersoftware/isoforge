@@ -29,8 +29,11 @@ class IsoDownloadService : Service() {
         const val EXTRA_ISO_NAME = "iso_name"
         const val ACTION_DOWNLOAD_COMPLETE = "com.barrersoftware.isotool.DOWNLOAD_COMPLETE"
         const val ACTION_DOWNLOAD_FAILED = "com.barrersoftware.isotool.DOWNLOAD_FAILED"
+        const val ACTION_DOWNLOAD_PROGRESS = "com.barrersoftware.isotool.DOWNLOAD_PROGRESS"
         const val EXTRA_FILE_PATH = "file_path"
         const val EXTRA_ERROR = "error_message"
+        const val EXTRA_DOWNLOADED = "downloaded_bytes"
+        const val EXTRA_TOTAL = "total_bytes"
     }
     
     override fun onCreate() {
@@ -118,6 +121,14 @@ class IsoDownloadService : Service() {
     private fun updateNotification(isoName: String, downloaded: Long, total: Long) {
         val notification = createNotification(isoName, downloaded, total)
         notificationManager?.notify(NOTIFICATION_ID, notification)
+        
+        // Broadcast progress to MainActivity
+        val intent = Intent(ACTION_DOWNLOAD_PROGRESS).apply {
+            putExtra(EXTRA_ISO_NAME, isoName)
+            putExtra(EXTRA_DOWNLOADED, downloaded)
+            putExtra(EXTRA_TOTAL, total)
+        }
+        sendBroadcast(intent)
     }
     
     private fun notifyComplete(file: File, isoName: String) {
